@@ -1,0 +1,164 @@
+---
+title: "MEDDIC na prática: o que separa quem usa de quem aplica"
+headline: "MEDDIC na prática:\no que separa quem\nusa de quem aplica"
+deck: "Times que 'usam' MEDDIC preenchem campos no CRM. Times que 'aplicam' usam o framework para revelar o que não sabem sobre o deal. A diferença está no que fazem com as lacunas."
+pillar: "Execução de Vendas"
+series: null
+seriesNum: null
+pubDate: 2026-02-19
+readTime: 11
+num: 3
+excerpt: "A diferença entre ter o framework no CRM e realmente executar deal a deal — e as perguntas que revelam onde o seu time está."
+featured: false
+---
+
+import PullQuote from '../../components/article/PullQuote.astro'
+import StatBlock from '../../components/article/StatBlock.astro'
+import ConceptBox from '../../components/article/ConceptBox.astro'
+import Checklist from '../../components/article/Checklist.astro'
+import CtaInline from '../../components/article/CtaInline.astro'
+
+Pergunte a qualquer líder de vendas B2B se o time usa um framework de qualificação. A maioria vai dizer que sim. Pergunte qual. MEDDIC ou alguma variação aparece com frequência.
+
+Pergunte agora o que aconteceu no último deal review. Quantas perguntas foram sobre o que o rep não sabe? Quantas foram sobre evidências concretas de progresso versus registros de atividade? Quantas lacunas de qualificação geraram um plano de ação?
+
+A resposta para essas perguntas revela se o time usa MEDDIC ou aplica MEDDIC. E a distância entre os dois é exatamente o tamanho da imprecisão no forecast.
+
+<StatBlock num="20-30%" label="de aumento em win rate em times que aplicam MEDDIC sistematicamente" source="Atlassian, citando dados agregados de implementação, 2025" />
+
+O número existe. Mas ele pressupõe aplicação real, não adoção nominal. Este artigo é sobre a diferença entre as duas.
+
+## O que é MEDDIC, para quem não conhece
+
+MEDDIC é um framework de qualificação criado em 1996 por Dick Dunkel na PTC, empresa de software industrial. Com o suporte de John McMahon, então CRO da PTC, o framework ajudou a empresa a crescer de US$ 300 milhões para US$ 1 bilhão em receita em quatro anos.
+
+<ConceptBox label="MEDDIC — os seis componentes">
+**M — Metrics (Métricas):** os resultados quantificáveis que o comprador espera obter. Não benefícios genéricos. Números específicos ligados ao negócio do comprador.
+
+**E — Economic Buyer (Comprador Econômico):** a pessoa com autoridade real sobre o budget. Quem decide se o problema merece investimento agora.
+
+**D — Decision Criteria (Critérios de Decisão):** o que o comprador vai usar para escolher entre as opções. Técnico, comercial, relacional.
+
+**D — Decision Process (Processo de Decisão):** como a decisão vai ser tomada. Quem precisa aprovar, em que ordem, com que prazo.
+
+**I — Identify Pain (Identificar a Dor):** o problema específico que o comprador precisa resolver. A urgência real por trás da conversa.
+
+**C — Champion (Campeão Interno):** a pessoa dentro da empresa compradora com influência real para avançar o deal internamente e interesse pessoal em ver o projeto acontecer.
+</ConceptBox>
+
+Variações como MEDDPICC adicionam **Paper Process** (processo de contratos e jurídico) e **Competition** (posicionamento competitivo). Para deals enterprise com múltiplos stakeholders e ciclos longos, essas adições fazem sentido. Para o propósito deste artigo, trabalhamos com o núcleo dos seis componentes.
+
+## Usar versus aplicar: a diferença concreta
+
+Um time que **usa** MEDDIC tem campos no CRM correspondendo a cada letra. O rep preenche "Economic Buyer: CFO" e "Decision Criteria: integração com Salesforce, preço, suporte local". A liderança vê esses campos preenchidos e conclui que o framework está sendo adotado.
+
+Um time que **aplica** MEDDIC usa o framework como diagnóstico ativo do deal. Cada componente que não está claro é uma lacuna. Cada lacuna é uma pergunta que precisa ser respondida antes do deal entrar no forecast.
+
+<PullQuote>
+Um campo de CRM preenchido não é evidência de qualificação. É evidência de que o rep teve tempo para digitar. Qualificação é o que o comprador revelou, não o que o rep registrou.
+</PullQuote>
+
+A distinção não é sutil. Ela muda o que acontece no deal review, o que entra no forecast e o que o gestor faz com os deals que têm lacunas.
+
+## Componente por componente: o que "aplicar" significa na prática
+
+### M — Metrics
+
+**Como quem usa registra:** "Redução de 20% no tempo de ciclo operacional."
+
+**Como quem aplica pergunta:** De onde veio esse número? O comprador calculou, ou foi o rep que estimou? O Economic Buyer validou que 20% é o número que importa para a decisão de compra? Se o produto entregasse 15%, o deal fecharia do mesmo jeito?
+
+A diferença é que quem aplica sabe se a métrica é real ou decorativa. Um número que o comprador não ajudou a construir dificilmente vai aparecer no business case interno que o Champion vai apresentar.
+
+### E — Economic Buyer
+
+**Como quem usa registra:** "CFO — Maria Santos."
+
+**Como quem aplica pergunta:** O rep já falou diretamente com Maria Santos? Ou só sabe o nome porque o Champion mencionou? Maria Santos sabe que esse deal existe? Ela está engajada ou está sendo apresentada ao deal pela primeira vez na reunião de aprovação?
+
+Economic Buyer registrado sem contato direto não é qualificação. É pesquisa no LinkedIn.
+
+### D — Decision Criteria
+
+**Como quem usa registra:** "Integração com sistemas existentes, preço e suporte."
+
+**Como quem aplica pergunta:** Quem definiu esses critérios? O comprador falou isso em qual momento da conversa? Existem critérios não declarados que o rep ainda não mapeou? O critério de "preço" é um teto absoluto ou é relativo ao valor percebido?
+
+Critérios de decisão que o rep listou sem verificar com o comprador refletem o que o rep acha que o comprador quer. Não necessariamente o que o comprador vai usar para decidir.
+
+### D — Decision Process
+
+**Como quem usa registra:** "Aprovação do CFO, prazo final: 31 de março."
+
+**Como quem aplica pergunta:** Quem confirmou o prazo de 31 de março? O que acontece com o budget se o deal não fechar nessa data? Existe um processo jurídico que o rep ainda não mapeou? Quantas pessoas precisam assinar e em que ordem? Já aconteceu de um deal semelhante travar no jurídico? Por quanto tempo?
+
+Processo de decisão sem o Paper Process mapeado (quem assina, em que ordem, qual o tempo médio de revisão jurídica) é uma das causas mais comuns de deals que "deveriam ter fechado" no quarter e não fecharam.
+
+### I — Identify Pain
+
+**Como quem usa registra:** "Dificuldade em consolidar dados de vendas em tempo real."
+
+**Como quem aplica pergunta:** Essa dor foi articulada pelo comprador ou identificada pelo rep? Qual é o impacto em número? O que acontece se o problema não for resolvido nos próximos seis meses? Esse problema existe há quanto tempo? Se existe há tempo e não foi resolvido, o que mudou agora que cria urgência?
+
+Dor sem urgência é curiosidade. O que converte deals é urgência com impacto quantificado.
+
+### C — Champion
+
+**Como quem usa registra:** "Rafael Souza, Gerente de Revenue Operations."
+
+**Como quem aplica pergunta:** Rafael já agendou uma reunião com o Economic Buyer por iniciativa própria, sem o rep pedir? Rafael conseguiu acesso a alguém que o rep ainda não havia alcançado? Rafael já apresentou o caso de negócio internamente? Qual é o interesse pessoal de Rafael em ver esse projeto acontecer?
+
+<StatBlock num="41%" label="dos executivos B2B dizem que vendas, marketing e produto estão altamente alinhados internamente" source="Forrester, 2024 Priorities Survey" />
+
+O Champion precisa navegar esse ambiente de desalinhamento interno para avançar o deal. Um coach simpático não consegue. Um Champion com influência real, sim.
+
+## O deal review como ferramenta de diagnóstico
+
+A diferença entre usar e aplicar MEDDIC fica mais clara no deal review. Um deal review que começa com "como está o deal?" produz um relatório de status. Um deal review que começa com "o que você ainda não sabe?" produz um diagnóstico.
+
+As perguntas que revelam a qualidade da qualificação:
+
+<Checklist items={[
+  "Qual componente do MEDDIC você tem menos confiança? Por quê?",
+  "O Economic Buyer sabe que esse deal existe? Quando foi o último contato direto?",
+  "O Champion avançou algo internamente nas últimas duas semanas sem você pedir?",
+  "Qual é a evidência mais forte de que esse deal vai fechar neste quarter?",
+  "O que precisa ser verdade para esse deal não fechar? Qual é a probabilidade disso?",
+  "Se você perdesse esse deal amanhã, qual seria a causa mais provável?"
+]} />
+
+Essas perguntas não buscam status. Buscam lacunas. E lacunas têm uma implicação clara: ou o rep tem um plano para fechar a lacuna, ou o deal não deveria estar no forecast.
+
+## Por que a maioria dos times trava na adoção real
+
+MEDDIC não é complicado de entender. É difícil de manter como disciplina quando a pressão por volume empurra na direção oposta.
+
+Três fatores travam a adoção real:
+
+**O CRM foi configurado para registrar, não para diagnosticar.** Campos de texto livre permitem que o rep escreva qualquer coisa e o sistema aceita como qualificado. Campos que exigem evidências específicas — "descreva a última ação do comprador que confirma urgência" — são mais incômodos. E mais úteis.
+
+**O deal review não usa as lacunas como central da conversa.** Quando o gerente revisa o deal sem questionar o que o rep não sabe, o framework vira protocolo de documentação. A pressão para mudar isso precisa vir da liderança.
+
+**O framework não foi conectado ao forecast de forma explícita.** Se um deal com três lacunas de MEDDIC pode entrar como commit sem questionamento, o framework não tem dentes. Quando a saída do deal review é "isso entra como best case até o Economic Buyer estar engajado", o time aprende que as lacunas têm consequências.
+
+<PullQuote>
+MEDDIC sem consequências para as lacunas é MEDDIC decorativo. A disciplina real começa quando o que o rep não sabe determina onde o deal aparece no forecast.
+</PullQuote>
+
+## A mudança que cria adoção real
+
+Não é treinamento adicional. É uma pergunta diferente no deal review.
+
+Em vez de "o deal está no commit?", a pergunta é "quais lacunas de MEDDIC esse deal ainda tem?". E a resposta determina automaticamente onde o deal aparece: commit com todas as lacunas fechadas, best case com uma ou duas lacunas menores, pipeline com lacunas críticas abertas.
+
+Quando o rep entende que lacunas de qualificação movem o deal no forecast, ele começa a fechar as lacunas antes do deal review. Não porque foi treinado. Porque o incentivo mudou.
+
+<CtaInline
+  title="Template de deal review baseado em MEDDIC"
+  text="As 6 perguntas de diagnóstico e o critério de forecast por nível de qualificação. Disponível no Early Access RevTrue."
+  cta="Acessar no Early Access RevTrue"
+/>
+
+---
+
+*Fontes: Atlassian, "MEDDIC Sales Methodology" (2025). Forrester, 2024 Priorities Survey. Flow State Sales, "Expert's Guide to the MEDDIC Sales Process" (2025). John McMahon, "The Qualified Sales Leader" (2021). Dick Dunkel e Jack Napoli, PTC (1996).*
