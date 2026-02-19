@@ -1,8 +1,8 @@
 ---
 import BlogLayout from '../layouts/BlogLayout.astro';
 import ArticleRow from '../components/ArticleRow.astro';
+import PillarStrip from '../components/PillarStrip.astro';
 import NumberBanner from '../components/NumberBanner.astro';
-import Newsletter from '../components/Newsletter.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort((a, b) => b.data.num - a.data.num);
@@ -36,6 +36,9 @@ const rest = posts.filter(p => p !== featured);
     </section>
   )}
 
+  <!-- Pillar Strip -->
+  <PillarStrip pillars={['Pipeline Reality', 'Execução de Vendas', 'Revenue Intelligence', 'Benchmarks']} />
+
   <!-- Article Rows -->
   <section class="rows container">
     {rest.map((post) => (
@@ -58,8 +61,6 @@ const rest = posts.filter(p => p !== featured);
     { num: '<span>18</span>min', label: 'tempo médio gasto em forecast por rep/semana' },
   ]} />
 
-  <!-- Newsletter -->
-  <Newsletter />
 </BlogLayout>
 
 <style>

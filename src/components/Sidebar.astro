@@ -49,11 +49,6 @@ const { toc = [], series } = Astro.props;
     </div>
   )}
 
-  <div class="sidebar-block sidebar-cta">
-    <h4 class="sidebar-cta-title">RevTrue Early Access</h4>
-    <p class="sidebar-cta-text">Revenue Operating System para B2B SaaS.</p>
-    <a href="/about" class="sidebar-cta-btn">Solicitar acesso</a>
-  </div>
 </aside>
 
 <style>
@@ -108,37 +103,6 @@ const { toc = [], series } = Astro.props;
   .series-link:hover { opacity: 0.7; }
   .series-link.current {
     color: var(--black);
-    font-weight: 600;
-  }
-  .sidebar-cta {
-    background: var(--black);
-    border-radius: 4px;
-    padding: 24px;
-    border-bottom: none;
-    margin-bottom: 0;
-  }
-  .sidebar-cta-title {
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .sidebar-cta-text {
-    font-family: var(--sans);
-    font-size: 13px;
-    color: var(--dim);
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-  .sidebar-cta-btn {
-    display: inline-block;
-    background: var(--orange);
-    color: var(--white);
-    border-radius: 100px;
-    padding: 8px 20px;
-    font-family: var(--sans);
-    font-size: 13px;
     font-weight: 600;
   }
 </style>
