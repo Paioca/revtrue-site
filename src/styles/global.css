@@ -1,0 +1,61 @@
+/* ========= TOKENS ========= */
+:root {
+  --orange:  #F0672A;
+  --navy:    #1E2D4A;
+  --black:   #0D0D0D;
+  --white:   #FFFFFF;
+  --off:     #F8F7F5;
+  --line:    #E8E4DE;
+  --muted:   #8C8880;
+  --dim:     #C2BDB6;
+  --text-body: #2A2520;
+  --text-med:  #4A4540;
+
+  --sans:  'Plus Jakarta Sans', sans-serif;
+  --serif: 'Lora', Georgia, serif;
+
+  --container: 1100px;
+  --pad-h: 40px;
+  --pad-h-mobile: 20px;
+}
+
+/* ========= RESET ========= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-body);
+  background: var(--white);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+
+/* ========= UTILITIES ========= */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--pad-h);
+  padding-right: var(--pad-h);
+}
+
+/* ========= ANIMATIONS ========= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fu  { animation: fadeUp 0.5s ease both; }
+.fu1 { animation-delay: 0.05s; }
+.fu2 { animation-delay: 0.12s; }
+.fu3 { animation-delay: 0.2s; }
+.fu4 { animation-delay: 0.3s; }
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 768px) {
+  :root {
+    --pad-h: var(--pad-h-mobile);
+  }
+}

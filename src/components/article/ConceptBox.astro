@@ -1,0 +1,37 @@
+---
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+<div class="concept-box">
+  <span class="concept-label">{label}</span>
+  <div class="concept-text">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .concept-box {
+    background: var(--off);
+    border-left: 3px solid var(--navy);
+    padding: 24px;
+    margin: 40px 0;
+  }
+  .concept-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .concept-text {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-med);
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+---
+<footer class="footer">
+  <div class="footer-inner container">
+    <span class="copy">&copy; 2026 RevTrue. Real results. Strategies that transform.</span>
+    <div class="footer-links">
+      <a href="/about">Sobre</a>
+      <a href="/">Produto</a>
+      <a href="/about">Early Access</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--line);
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+  .copy {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-links a {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--black); }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,203 @@
+---
+import Base from './Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+interface Props {
+  title: string;
+  headline: string;
+  deck: string;
+  pillar: string;
+  pubDate: Date;
+  readTime: number;
+  slug: string;
+  series?: { name: string; items: { title: string; slug: string; current?: boolean }[] };
+  toc?: { id: string; text: string }[];
+}
+const { title, headline, deck, pillar, pubDate, readTime, slug, series, toc = [] } = Astro.props;
+const formattedDate = pubDate.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+const headlineLines = headline.split('\\n');
+---
+<Base title={title} description={deck} slug={slug}>
+  <Nav />
+
+  <!-- Progress bar -->
+  <div id="progress-bar" class="progress-bar"></div>
+
+  <!-- Masthead -->
+  <div class="art-masthead container">
+    <div class="breadcrumb fu fu1">
+      <a href="/" class="back-btn">←</a>
+      <span class="sep">/</span>
+      <span class="pillar-tag">{pillar}</span>
+    </div>
+    <h1 class="art-h1 fu fu2">
+      {headlineLines.map((line, i) => (
+        <Fragment>
+          {i > 0 && <br />}
+          <Fragment set:html={line.replace(/<em>/g, '<em class="orange">').replace(/<\/em>/g, '</em>')} />
+        </Fragment>
+      ))}
+    </h1>
+    <p class="art-deck fu fu3">{deck}</p>
+    <div class="art-meta fu fu3">
+      <span>{formattedDate}</span>
+      <span>·</span>
+      <span>{readTime} min de leitura</span>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="art-body container">
+    <article class="art-content">
+      <slot />
+    </article>
+    <Sidebar toc={toc} series={series} />
+  </div>
+
+  <Footer />
+</Base>
+
+<style>
+  .progress-bar {
+    position: fixed;
+    top: 58px;
+    left: 0;
+    height: 2px;
+    background: var(--orange);
+    z-index: 200;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  .art-masthead {
+    border-bottom: 2px solid var(--black);
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .back-btn {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .back-btn:hover { color: var(--black); }
+  .sep { color: var(--line); }
+  .pillar-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .art-h1 {
+    font-family: var(--sans);
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    color: var(--black);
+    max-width: 760px;
+  }
+  .art-h1 :global(em.orange) {
+    color: var(--orange);
+    font-style: italic;
+  }
+  .art-deck {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--text-med);
+    max-width: 680px;
+    margin-top: 20px;
+  }
+  .art-meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .art-body {
+    display: grid;
+    grid-template-columns: 680px 1fr;
+    gap: 80px;
+    align-items: start;
+    padding-top: 48px;
+    padding-bottom: 80px;
+  }
+  .art-content {
+    max-width: 680px;
+  }
+  .art-content :global(h2) {
+    font-family: var(--sans);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: var(--black);
+    margin-top: 48px;
+    margin-bottom: 20px;
+  }
+  .art-content :global(h3) {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 36px;
+    margin-bottom: 12px;
+  }
+  .art-content :global(p) {
+    margin-bottom: 24px;
+  }
+  .art-content :global(strong) {
+    font-weight: 500;
+    color: var(--black);
+  }
+  .art-content :global(a) {
+    color: var(--orange);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .art-content :global(ul), .art-content :global(ol) {
+    padding-left: 20px;
+    margin-bottom: 24px;
+  }
+  .art-content :global(li) {
+    margin-bottom: 8px;
+    list-style: disc;
+  }
+  .art-content :global(ol li) {
+    list-style: decimal;
+  }
+  .art-content :global(hr) {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 48px 0;
+  }
+
+  @media (max-width: 768px) {
+    .art-body {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const h = document.body.scrollHeight - window.innerHeight;
+    if (bar) bar.style.width = h > 0 ? (window.scrollY / h) * 100 + '%' : '0%';
+  }, { passive: true });
+</script>

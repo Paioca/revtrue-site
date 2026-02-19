@@ -1,0 +1,49 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+
+const toc = headings
+  .filter(h => h.depth === 2)
+  .map(h => ({ id: h.slug, text: h.text }));
+
+// Build series info if applicable
+const allPosts = await getCollection('blog');
+let series;
+if (post.data.series) {
+  const seriesPosts = allPosts
+    .filter(p => p.data.series === post.data.series)
+    .sort((a, b) => (a.data.seriesNum ?? 0) - (b.data.seriesNum ?? 0));
+  series = {
+    name: post.data.series,
+    items: seriesPosts.map(p => ({
+      title: p.data.title,
+      slug: p.slug,
+      current: p.slug === post.slug,
+    })),
+  };
+}
+---
+<ArticleLayout
+  title={post.data.title}
+  headline={post.data.headline}
+  deck={post.data.deck}
+  pillar={post.data.pillar}
+  pubDate={post.data.pubDate}
+  readTime={post.data.readTime}
+  slug={post.slug}
+  toc={toc}
+  series={series}
+>
+  <Content />
+</ArticleLayout>

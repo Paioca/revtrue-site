@@ -1,0 +1,144 @@
+---
+interface TocItem {
+  id: string;
+  text: string;
+}
+interface SeriesItem {
+  title: string;
+  slug: string;
+  current?: boolean;
+}
+interface Props {
+  toc?: TocItem[];
+  series?: { name: string; items: SeriesItem[] };
+}
+const { toc = [], series } = Astro.props;
+---
+<aside class="sidebar">
+  {toc.length > 0 && (
+    <div class="sidebar-block">
+      <h4 class="sidebar-heading">Neste artigo</h4>
+      <ol class="toc-list">
+        {toc.map((item, i) => (
+          <li>
+            <a href={`#${item.id}`} class="toc-link">
+              <span class="toc-num">{String(i + 1).padStart(2, '0')}</span>
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )}
+
+  {series && (
+    <div class="sidebar-block">
+      <h4 class="sidebar-heading">{series.name}</h4>
+      <ul class="series-list">
+        {series.items.map((item) => (
+          <li>
+            <a
+              href={`/blog/${item.slug}`}
+              class:list={['series-link', { current: item.current }]}
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <div class="sidebar-block sidebar-cta">
+    <h4 class="sidebar-cta-title">RevTrue Early Access</h4>
+    <p class="sidebar-cta-text">Revenue Operating System para B2B SaaS.</p>
+    <a href="/about" class="sidebar-cta-btn">Solicitar acesso</a>
+  </div>
+</aside>
+
+<style>
+  .sidebar {
+    position: sticky;
+    top: 80px;
+  }
+  .sidebar-block {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+  .sidebar-heading {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .toc-link {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .toc-link:hover { color: var(--black); }
+  .toc-num {
+    color: var(--orange);
+    font-weight: 700;
+    min-width: 18px;
+  }
+  .series-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .series-link {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    transition: opacity 0.2s;
+  }
+  .series-link:hover { opacity: 0.7; }
+  .series-link.current {
+    color: var(--black);
+    font-weight: 600;
+  }
+  .sidebar-cta {
+    background: var(--black);
+    border-radius: 4px;
+    padding: 24px;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .sidebar-cta-title {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .sidebar-cta-text {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--dim);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .sidebar-cta-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+  }
+</style>

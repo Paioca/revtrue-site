@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  cta: string;
+}
+const { title, text, cta } = Astro.props;
+---
+<div class="cta-inline">
+  <h4 class="cta-title">{title}</h4>
+  <p class="cta-text">{text}</p>
+  <a href="/about" class="cta-button">{cta}</a>
+</div>
+
+<style>
+  .cta-inline {
+    border: 2px solid var(--black);
+    padding: 32px;
+    margin: 40px 0;
+  }
+  .cta-title {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .cta-text {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--text-med);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .cta-button {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 100px;
+    padding: 10px 24px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .cta-button:hover { opacity: 0.9; }
+</style>

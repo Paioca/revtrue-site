@@ -1,0 +1,173 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+import ArticleRow from '../components/ArticleRow.astro';
+import NumberBanner from '../components/NumberBanner.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.num - a.data.num);
+const featured = posts.find(p => p.data.featured);
+const rest = posts.filter(p => p !== featured);
+---
+<BlogLayout title="Blog" description="Conteúdo direto sobre pipeline, vendas e revenue ops para B2B SaaS.">
+  <!-- Masthead -->
+  <div class="masthead container">
+    <div class="masthead-inner">
+      <span class="masthead-label fu fu1">Artigos &amp; Análises</span>
+      <span class="masthead-tagline fu fu2"><em>Real results. Strategies that transform.</em></span>
+    </div>
+  </div>
+
+  <!-- Lead Section -->
+  {featured && (
+    <section class="lead container">
+      <div class="lead-grid">
+        <div class="lead-main">
+          <span class="lead-pillar fu fu1">{featured.data.pillar}</span>
+          <h1 class="lead-headline fu fu2" set:html={featured.data.headline.replace(/\\n/g, '<br>')} />
+          <p class="lead-deck fu fu3">{featured.data.deck}</p>
+          <a href={`/blog/${featured.slug}`} class="lead-btn fu fu4">Ler artigo</a>
+        </div>
+        <div class="lead-side">
+          <span class="lead-meta">{featured.data.readTime} min · #{String(featured.data.num).padStart(2, '0')}</span>
+          <p class="lead-excerpt">{featured.data.excerpt}</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Article Rows -->
+  <section class="rows container">
+    {rest.map((post) => (
+      <ArticleRow
+        num={post.data.num}
+        title={post.data.title}
+        excerpt={post.data.excerpt}
+        pillar={post.data.pillar}
+        readTime={post.data.readTime}
+        slug={post.slug}
+      />
+    ))}
+  </section>
+
+  <!-- Number Banner -->
+  <NumberBanner items={[
+    { num: '<span>73</span>%', label: 'dos deals previstos escorregam de quarter' },
+    { num: '<span>2.4</span>x', label: 'de pipeline necessário vs quota real' },
+    { num: '<span>47</span>%', label: 'dos reps não batem meta consistentemente' },
+    { num: '<span>18</span>min', label: 'tempo médio gasto em forecast por rep/semana' },
+  ]} />
+
+  <!-- Newsletter -->
+  <Newsletter />
+</BlogLayout>
+
+<style>
+  .masthead {
+    padding-top: 60px;
+    border-bottom: 2px solid var(--black);
+  }
+  .masthead-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 16px;
+  }
+  .masthead-label {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .masthead-tagline {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .lead {
+    border-bottom: 1px solid var(--line);
+  }
+  .lead-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .lead-main {
+    border-right: 1px solid var(--line);
+    padding: 48px 48px 48px 0;
+  }
+  .lead-side {
+    padding: 48px 0 48px 48px;
+  }
+  .lead-pillar {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .lead-headline {
+    font-family: var(--sans);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--black);
+  }
+  .lead-deck {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text-med);
+    margin-top: 16px;
+  }
+  .lead-btn {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .lead-btn:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+  }
+  .lead-meta {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .lead-excerpt {
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-med);
+  }
+  .rows {
+    padding-top: 8px;
+    padding-bottom: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .lead-grid {
+      grid-template-columns: 1fr;
+    }
+    .lead-main {
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+      padding: 32px 0;
+    }
+    .lead-side { padding: 32px 0; }
+  }
+</style>

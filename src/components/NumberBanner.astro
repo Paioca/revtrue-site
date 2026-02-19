@@ -1,0 +1,62 @@
+---
+interface StatItem {
+  num: string;
+  label: string;
+}
+interface Props {
+  items: StatItem[];
+}
+const { items } = Astro.props;
+---
+<section class="number-banner">
+  <div class="number-banner-inner container">
+    {items.map((item) => (
+      <div class="number-item">
+        <span class="number-fig" set:html={item.num} />
+        <span class="number-label">{item.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .number-banner {
+    background: var(--off);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .number-banner-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .number-item {
+    padding: 40px 32px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .number-item:last-child { border-right: none; }
+  .number-fig {
+    font-family: var(--sans);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--black);
+  }
+  .number-fig :global(span) { color: var(--orange); }
+  .number-label {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    .number-banner-inner {
+      grid-template-columns: 1fr 1fr;
+    }
+    .number-item:nth-child(2) { border-right: none; }
+  }
+</style>
