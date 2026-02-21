@@ -6,10 +6,13 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  alternates?: { hreflang: string; href: string }[];
+  ogType?: string;
 }
-const { title = 'Blog', description } = Astro.props;
+const { title = 'Blog', description, canonical, alternates, ogType } = Astro.props;
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} canonical={canonical} alternates={alternates} ogType={ogType}>
   <Nav />
   <slot />
   <Footer />

@@ -3,9 +3,19 @@ interface Props {
   title: string;
   description?: string;
   slug?: string;
+  canonical?: string;
+  alternates?: { hreflang: string; href: string }[];
+  ogType?: string;
 }
 
-const { title, description = 'Revenue Operating System para B2B SaaS.', slug } = Astro.props;
+const {
+  title,
+  description = 'Revenue Operating System para B2B SaaS.',
+  slug,
+  canonical,
+  alternates = [],
+  ogType = 'website',
+} = Astro.props;
 const ogImage = slug ? `/og/${slug}.png` : '/og/default.png';
 ---
 <!DOCTYPE html>
@@ -13,15 +23,21 @@ const ogImage = slug ? `/og/${slug}.png` : '/og/default.png';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} — RevTrue Blog</title>
+  <title>{title}</title>
   <meta name="description" content={description}>
+
+  {canonical && <link rel="canonical" href={canonical} />}
+  {alternates.map(alt => (
+    <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+  ))}
 
   <!-- Open Graph -->
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
-  <meta property="og:type" content="article">
+  <meta property="og:type" content={ogType}>
+  {canonical && <meta property="og:url" content={canonical} />}
   <meta property="og:image" content={ogImage}>
-  <meta property="og:site_name" content="RevTrue Blog">
+  <meta property="og:site_name" content="RevTrue">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">

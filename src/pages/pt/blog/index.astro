@@ -7,7 +7,11 @@ const posts = (await getCollection('blog-pt')).sort(
 );
 
 ---
-<BlogLayout title="Blog" description="Conteúdo sobre pipeline, vendas e revenue ops para B2B SaaS.">
+<BlogLayout
+  title="Blog"
+  description="Conteúdo sobre pipeline, vendas e revenue ops para B2B SaaS."
+  canonical="https://revtrue.tech/pt/blog"
+>
   <section class="blog-list container">
     <h1 class="blog-list-title">Blog</h1>
     <ul class="post-list">
