@@ -9,7 +9,7 @@ interface Props {
 }
 const { num, title, excerpt, pillar, readTime, slug } = Astro.props;
 ---
-<a href={`/blog/${slug}`} class="article-row">
+<a href={`/${slug}`} class="article-row">
   <span class="article-row-num">#{String(num).padStart(2, '0')}</span>
   <div class="article-row-body">
     <h3 class="article-row-title">{title}</h3>
